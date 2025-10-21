@@ -11,11 +11,11 @@
 This package provides a way to use DOM hierarchy to manage context state.\
 It's framework-agnostic\* and not limited to Astro.
 
-<a href="https://valooford.github.io/astro-context/demo/">
+<a href="https://valooford.github.io/astro-context/">
   <img src="demo.gif" alt="Demo">
 </a>
 <div>
-  <a href="https://valooford.github.io/astro-context/demo/">Demo</a>
+  <a href="https://valooford.github.io/astro-context/">Demo</a>
   |
   <a href="./demo/">Sources</a>
 </div>

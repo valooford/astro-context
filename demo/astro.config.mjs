@@ -18,6 +18,6 @@ export default defineConfig({
     }),
     svelte(),
   ],
-  site: 'https://valooford.github.io/astro-context/demo/',
-  base: '/astro-context/demo',
+  site: 'https://valooford.github.io/astro-context/',
+  base: '/astro-context',
 })
