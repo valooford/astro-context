@@ -43,7 +43,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepack": "node --experimental-strip-types ./config/scripts/prepack.ts",
     "pack": "pnpm prepack && cd dist && pnpm pack --pack-destination ..",
-    "publish:npm": "pnpm prepack && cd dist && pnpm publish --access public --publish-branch main"
+    "publish:npm": "pnpm prepack && cd dist && pnpm publish --access public --publish-branch main --tag latest"
   },
   "author": "valooford",
   "license": "MIT",
