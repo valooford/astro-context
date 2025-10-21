@@ -726,7 +726,7 @@ type StorageVariants = 'memory' | 'localStorage'
 >
 > Each utility is based on the core API, so you can use it to build your own utilities.
 >
-> See [src/<supported-framework>/index.ts](./src/<supported-framework>/index.ts) for reference.
+> See [src/\<supported-framework\>/index.ts](./src) for reference.
 
 ### `useContext()` function
 
