@@ -1,0 +1,12 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+
+  "references": [
+    { "path": "./tsconfig.react.json" },
+    { "path": "./tsconfig.preact.json" },
+    { "path": "./tsconfig.solid.json" },
+    { "path": "./tsconfig.vue.json" }
+  ]
+}

@@ -1,0 +1,29 @@
+// hint: include those to your settings.json
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "npm.exclude": ["**/dist"],
+  "npm.scriptExplorerExclude": ["prepack", "install", "test"],
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.js": "",
+    "tsconfig.json": "tsconfig.*.json, globals.d.ts",
+    "eslint.config.ts": ".eslint*",
+    "prettier.config.js": ".prettierignore",
+    "package.json": "package-lock.json, .npm*, pnpm*, .yarnrc*, yarn*, .editorconfig",
+    "README*": "README*, CHANGELOG*, LICENSE, LICENCE, *.gif"
+  },
+  "git.followTagsWhenSync": true,
+  "files.associations": {
+    // comments are allowed in these files
+    "api-extractor*.json": "jsonc",
+    "tsdoc-metadata.json": "jsonc"
+  },
+  "svelte.enable-ts-plugin": true
+}

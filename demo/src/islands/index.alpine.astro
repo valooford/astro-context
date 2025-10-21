@@ -1,0 +1,63 @@
+---
+import { LocalContext, SessionContext } from './model'
+
+interface Props {
+  variant?: 'global' | 'session' | 'local'
+}
+const { variant = 'local' } = Astro.props
+
+const Context = variant === 'session' ? SessionContext : LocalContext
+---
+
+<script>
+  import Alpine from 'alpinejs'
+  import { useContext } from 'astro-context'
+
+  import { LocalContext, SessionContext } from './model'
+
+  Alpine.data('context', (variant: 'global' | 'session' | 'local') => {
+    const Context = variant === 'session' ? SessionContext : LocalContext
+    return {
+      value: Context.get(),
+      init() {
+        const context = useContext(Context, this.$root)
+
+        this.value = context.value
+        this.$watch('value', (value) => {
+          context.value = value
+        })
+        context.listen((value) => {
+          this.value = value
+        })
+      },
+    }
+  })
+
+  Alpine.start()
+</script>
+
+<div
+  x-data={`context('${variant}')`}
+  class={['tile', variant === 'session' && 'context_session']
+    .filter(Boolean)
+    .join(' ')}
+>
+  <div class="tile__header">
+    <div class="tile__icon tile__icon_lg">
+      <span class="material-symbols-outlined">javascript</span>
+    </div>
+    <div
+      class={['badge', variant === 'session' && 'badge_alt']
+        .filter(Boolean)
+        .join(' ')}
+    >
+    </div>
+  </div>
+  <div class="tile__title">Alpine.js (Astro)</div>
+  <div class="tile__controls">
+    <label>
+      <input type="checkbox" x-model="value" checked={Context.get()} />
+      Activate
+    </label>
+  </div>
+</div>

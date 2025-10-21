@@ -1,0 +1,111 @@
+{
+  "name": "astro-context",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "A framework agnostic context API for managing state in Astro applications.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*.astro": "./dist/*.astro",
+    "./globals": {
+      "types": "./globals.d.ts"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.js"
+    },
+    "./preact": {
+      "types": "./dist/preact/index.d.ts",
+      "default": "./dist/preact/index.js"
+    },
+    "./solid": {
+      "types": "./dist/solid/index.d.ts",
+      "default": "./dist/solid/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "default": "./dist/vue/index.js"
+    },
+    "./svelte": {
+      "types": "./dist/svelte/index.d.ts",
+      "default": "./dist/svelte/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "concurrently 'tsup --watch --config config/tsup.config.ts' 'tsdown --watch --config config/tsdown.config.ts'",
+    "build": "tsdown -c config/tsdown.config.ts",
+    "lint": "eslint . --cache",
+    "format": "prettier . --write",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepack": "node --experimental-strip-types ./config/scripts/prepack.ts",
+    "pack": "pnpm prepack && cd dist && pnpm pack --pack-destination ..",
+    "publish:npm": "pnpm prepack && cd dist && pnpm publish --access public --publish-branch v/0.x"
+  },
+  "author": "valooford",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valooford/astro-context.git"
+  },
+  "funding": "https://github.com/valooford/valooford#support",
+  "homepage": "https://github.com/valooford/astro-context",
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.5.1",
+    "@microsoft/api-extractor": "^7.53.1",
+    "@microsoft/tsdoc": "^0.15.1",
+    "@types/node": "^24.2.0",
+    "@types/react": "^19.2.2",
+    "@typescript-eslint/parser": "^8.39.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.32.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "globals": "^16.3.0",
+    "globby": "^14.1.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
+    "tsdown": "^0.15.7",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
+  },
+  "peerDependencies": {
+    "astro": ">=5.0.0",
+    "preact": ">=10.0.0",
+    "react": ">=18.0.0",
+    "solid-js": ">=1.0.0",
+    "svelte": ">=5.0.0",
+    "vue": ">=3.0.0"
+  },
+  "keywords": [
+    "astro",
+    "context",
+    "state",
+    "scope",
+    "store",
+    "persistent",
+    "state-manager",
+    "state manager",
+    "typescript",
+    "reactive",
+    "framework-agnostic",
+    "framework agnostic",
+    "useContext",
+    "useStore",
+    "ContextProvider",
+    "provider",
+    "react",
+    "reactjs",
+    "preact",
+    "solid",
+    "solidjs",
+    "vue",
+    "vuejs",
+    "svelte",
+    "alpinejs"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+
+  "include": ["src/**/*.react.jsx", "src/**/*.react.tsx", "src/**/*.ts"],
+
+  "compilerOptions": {
+    "strictNullChecks": true,
+
+    "composite": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}

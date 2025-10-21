@@ -1,0 +1,63 @@
+---
+import { LocalContext, SessionContext } from './model'
+
+interface Props {
+  variant?: 'global' | 'session' | 'local'
+}
+const { variant = 'local' } = Astro.props
+
+const Context = variant === 'session' ? SessionContext : LocalContext
+---
+
+<script>
+  import { useContext } from 'astro-context'
+
+  import { LocalContext, SessionContext } from './model'
+
+  class Component extends HTMLElement {
+    connectedCallback() {
+      const context = useContext(
+        this.dataset.variant === 'session' ? SessionContext : LocalContext,
+        this
+      )
+      const input = this.querySelector('input')
+      if (input) {
+        input.checked = context?.value ?? false
+        input.addEventListener('change', () => {
+          context.value = input.checked
+        })
+        context.listen((value) => {
+          input.checked = value
+        })
+      }
+    }
+  }
+  customElements.define('vanilla-astro', Component)
+</script>
+
+<vanilla-astro data-variant={variant}>
+  <div
+    class={['tile', variant === 'session' && 'context_session']
+      .filter(Boolean)
+      .join(' ')}
+  >
+    <div class="tile__header">
+      <div class="tile__icon tile__icon_lg">
+        <span class="material-symbols-outlined">javascript</span>
+      </div>
+      <div
+        class={['badge', variant === 'session' && 'badge_alt']
+          .filter(Boolean)
+          .join(' ')}
+      >
+      </div>
+    </div>
+    <div class="tile__title">Vanilla JS (Astro)</div>
+    <div class="tile__controls">
+      <label>
+        <input type="checkbox" checked={Context.get()} />
+        Activate
+      </label>
+    </div>
+  </div>
+</vanilla-astro>

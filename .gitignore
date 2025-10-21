@@ -1,0 +1,25 @@
+# Dependency directories
+node_modules/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/_*.jsonc
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Build / generate output
+dist
+
+# API Extractor temporary files
+temp
+
+# macOS-specific files
+.DS_Store

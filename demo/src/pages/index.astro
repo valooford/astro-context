@@ -1,0 +1,140 @@
+---
+import { ContextProvider, createStore, getDefaultStore } from 'astro-context'
+
+import AlpineIsland from '../islands/index.alpine.astro'
+import PreactIsland from '../islands/index.preact'
+import ReactIsland from '../islands/index.react'
+import SolidIsland from '../islands/index.solid'
+import SvelteIsland from '../islands/index.svelte'
+import Vanilla from '../islands/index.vanilla.astro'
+import VueIsland from '../islands/index.vue'
+import { LocalContext } from '../islands/model'
+import Layout from '../layout/Layout.astro'
+
+// Setting up providers is a SSR-bounded operation.
+// - Import created context instances (LocalContext).
+// - Create stores in your component script (sharedStore).
+// - Add ContextProvider in your component template.
+
+const sharedStore = createStore('local_1')
+---
+
+<script>
+  const tiles = document.querySelector('.tiles')
+  document
+    .getElementById('control-hierarchy')
+    ?.addEventListener('change', () => {
+      tiles?.classList.toggle('tiles_with-hierarchy')
+    })
+
+  document.getElementById('reload-btn')?.addEventListener('click', () => {
+    window.location.reload()
+  })
+</script>
+
+<Layout>
+  <div class="container">
+    <div class="legend">
+      <div class="legend__pair">
+        <div class="legend__item context_global">
+          <div class="badge"></div>
+          global
+        </div>
+        <div class="legend__item context_local_1">
+          <div class="badge"></div>
+          scoped i
+        </div>
+        <div class="legend__item context_local_2">
+          <div class="badge"></div>
+          scoped ii
+        </div>
+        <svg
+          viewBox="0 0 176 8"
+          xmlns="http://www.w3.org/2000/svg"
+          class="legend__connector"
+        >
+          <polyline points="1,8 1,1 87,1 87,8 87,1 175,1 175,8"></polyline>
+        </svg>
+      </div>
+      <div class="legend__item context_session" title="localStorage">
+        <div class="badge badge_alt"></div>
+        session
+        <button
+          class="legend__hint"
+          id="reload-btn"
+          title="note that session state is persisted">↻ reload</button
+        >
+      </div>
+      <label class="legend__item">
+        <input type="checkbox" id="control-hierarchy" />
+        show providers hierarchy
+      </label>
+    </div>
+
+    <div class="tiles context_global">
+      <!-- components not wrapped in ContextProvider use values from the global scope -->
+      <Vanilla variant="global" />
+      <ReactIsland client:load variant="session" />
+      <PreactIsland client:load variant="session" />
+
+      <!-- wrap the components in ContextProvider to create a scope -->
+      <ContextProvider
+        context={LocalContext}
+        store={sharedStore}
+        class="provider-row context_local_1"
+      >
+        <!-- use the `getDefaultStore()` to pass it in the `store` prop and opt out of scoping -->
+        <ContextProvider
+          context={LocalContext}
+          store={getDefaultStore()}
+          class="provider-cell context_global"
+        >
+          <SolidIsland client:load variant="global" />
+        </ContextProvider>
+        <VueIsland client:load />
+        <SvelteIsland client:load />
+      </ContextProvider>
+
+      <!-- another provider creates a new scope for the same context -->
+      <ContextProvider
+        context={LocalContext}
+        class="provider-row context_local_2"
+      >
+        <AlpineIsland client:load />
+        <!-- use the `createStore()` function to reuse the same context scope for multiple providers -->
+        <ContextProvider
+          context={LocalContext}
+          store={sharedStore}
+          class="provider-cell context_local_1"
+        >
+          <Vanilla />
+        </ContextProvider>
+        <ReactIsland client:load />
+      </ContextProvider>
+    </div>
+
+    <div class="about">
+      <p>
+        <b>Try it!</b> Change a checkbox state in one framework—see it get updated
+        in others sharing the same scope.
+      </p>
+      <p>
+        Mix and match frameworks freely. Shared context works across them all.
+      </p>
+    </div>
+  </div>
+
+  <a
+    href="https://github.com/valooford/astro-context"
+    target="_blank"
+    class="repo"
+  >
+    The source code is available on
+    <br />
+    <img
+      src="https://raw.githubusercontent.com/github/docs/refs/heads/main/assets/images/site/favicon.png"
+      alt="GitHub"
+    />
+    valooford/astro-context/demo
+  </a>
+</Layout>

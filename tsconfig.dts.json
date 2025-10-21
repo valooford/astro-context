@@ -1,0 +1,15 @@
+//! unused, see file://./config/tsup.config.ts
+{
+  "extends": "./tsconfig.json",
+  "include": [".astro/types.d.ts", "src/**/*"],
+  // "files": ["src/index.ts"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": "src",
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  }
+}

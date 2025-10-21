@@ -1,0 +1,7 @@
+# Disallow all files
+*
+
+# Allow dist folder
+!dist/**/*[!.map]
+
+!globals.d.ts

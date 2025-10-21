@@ -1,0 +1,21 @@
+---
+import type { Context, Store } from '.'
+import type { HTMLAttributes } from 'astro/types'
+
+//? Generic props are not supported https://github.com/withastro/roadmap/discussions/601
+interface Props extends HTMLAttributes<'body'> {
+  context: Context<any, any>
+  store?: Store
+}
+const { context, store, ...props } = Astro.props
+---
+
+<script src="./ContextProvider"></script>
+
+<context-provider
+  {...context.providerTraits(store)}
+  style="display: contents;"
+  {...props}
+>
+  <slot />
+</context-provider>

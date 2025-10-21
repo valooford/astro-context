@@ -1,0 +1,32 @@
+{
+  "name": "demo",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/preact": "^4.1.1",
+    "@astrojs/react": "^4.4.0",
+    "@astrojs/solid-js": "^5.1.1",
+    "@astrojs/svelte": "^7.2.0",
+    "@astrojs/vue": "^5.1.1",
+    "@types/alpinejs": "^3.13.11",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "alpinejs": "^3.15.0",
+    "astro": "^5.14.5",
+    "astro-context": "file:../astro-context-0.0.0.tgz",
+    "preact": "^10.27.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "solid-js": "^1.9.9",
+    "svelte": "^5.41.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22"
+  }
+}

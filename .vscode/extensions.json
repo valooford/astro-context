@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "astro-build.astro-vscode",
+    "aaron-bond.better-comments",
+    "vue.volar",
+    "svelte.svelte-vscode"
+  ]
+}
