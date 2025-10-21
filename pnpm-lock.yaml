@@ -115,8 +115,8 @@ importers:
         specifier: ^5.14.5
         version: 5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3)
       astro-context:
-        specifier: '*'
-        version: 0.0.0(astro@5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3))(preact@10.27.2)(react@19.2.0)(solid-js@1.9.9)(svelte@5.41.0)(vue@3.5.22(typescript@5.9.3))
+        specifier: latest
+        version: 0.0.1-2(astro@5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3))(preact@10.27.2)(react@19.2.0)(solid-js@1.9.9)(svelte@5.41.0)(vue@3.5.22(typescript@5.9.3))
       preact:
         specifier: ^10.27.2
         version: 10.27.2
@@ -1568,8 +1568,8 @@ packages:
     resolution: {integrity: sha512-TH+b3Lv6pUjy/Nu0m6A2JULtdzLpmqF9x1Dhj00ZoEiML8qvVA9j1flkzTKNYgdEhWrjDwtWNpyyCUbfQe514g==}
     engines: {node: '>=20.19.0'}
 
-  astro-context@0.0.0:
-    resolution: {integrity: sha512-2+oVE21Lz83V3QkExK8SM9Jyrqa8XhcL+709oErwbrhF5rlhYYbh7p/UVpl90y3rNaPIY5Sa0uw+QItzGKBPmQ==}
+  astro-context@0.0.1-2:
+    resolution: {integrity: sha512-hFByrogDvpCZndkxeBPiR9bJegkqQHnO3o1/J80cOykuPHYvv9zXug6R9vry1/scWKnKBSecIp85jKx7VIskYg==}
     peerDependencies:
       astro: '>=5.0.0'
       preact: '>=10.0.0'
@@ -5394,7 +5394,7 @@ snapshots:
       '@babel/parser': 7.28.4
       pathe: 2.0.3
 
-  astro-context@0.0.0(astro@5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3))(preact@10.27.2)(react@19.2.0)(solid-js@1.9.9)(svelte@5.41.0)(vue@3.5.22(typescript@5.9.3)):
+  astro-context@0.0.1-2(astro@5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3))(preact@10.27.2)(react@19.2.0)(solid-js@1.9.9)(svelte@5.41.0)(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       astro: 5.14.5(@types/node@24.2.0)(jiti@2.6.1)(rollup@4.46.2)(typescript@5.9.3)
       preact: 10.27.2
