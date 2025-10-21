@@ -37,7 +37,7 @@ It's framework-agnostic\* and not limited to Astro.
 <div align="center">
 
 ```bash
-npm install -D astro-context
+npm install astro-context
 ```
 
 </div>
@@ -78,7 +78,6 @@ import CounterContext from '../contexts/counter'
 // React component
 
 import { useContext } from 'astro-context/react'
-
 import { CounterContext } from '../contexts/counter'
 
 export default function ReactCounter() {
@@ -99,7 +98,6 @@ export default function ReactCounter() {
 
 <script setup>
 import { useContext } from 'astro-context/vue'
-
 import { CounterContext } from '../contexts/counter'
 
 const [count, setCount] = useContext(CounterContext)
@@ -122,9 +120,11 @@ const [count, setCount] = useContext(CounterContext)
 - **Astro Optimized**: Designed specifically for Astro's island architecture
   - _yet the context mechanism can be useful in any web application_
 
-# API Reference
+[Scroll Up ↩](#astro-context)
 
-## Table of Contents
+---
+
+# API Reference
 
 - [Functions](#functions)
   - [`createStore()` function](#createstore-function)
@@ -182,6 +182,8 @@ const sharedStore = createStore('local_1')
 
 #### Public
 
+[Scroll Up ↩](#api-reference)
+
 ### `getDefaultStore()` function
 
 Gets the default global store instance.
@@ -209,6 +211,8 @@ const globalStore = getDefaultStore()
 ```
 
 #### Public
+
+[Scroll Up ↩](#api-reference)
 
 ### `useContext()` function
 
@@ -243,9 +247,11 @@ context.value = true
 
 #### Public
 
+[Scroll Up ↩](#api-reference)
+
 ## Variables
 
-### **`createContext` function**
+### `createContext` function
 
 Creates a new Context instance with the specified name, initial value, and configuration.
 
@@ -279,6 +285,8 @@ const SessionContext = createContext('session', false, {
 ```
 
 #### Public
+
+[Scroll Up ↩](#api-reference)
 
 ## Classes
 
@@ -386,6 +394,8 @@ LocalContext.set(true)
 LocalContext.set(false, 'my-scope')
 ```
 
+[Scroll Up ↩](#api-reference)
+
 ### `ContextConfig` class
 
 Configuration class for Context instances that defines storage type and serialization behavior.
@@ -419,6 +429,8 @@ Function used to serialize values for storage.
 ```ts
 readonly stringify: (value: T) => string;
 ```
+
+[Scroll Up ↩](#api-reference)
 
 ### `ScopedContext` class
 
@@ -474,6 +486,8 @@ set value(value: T);
 const currentValue = scopedContext.value
 scopedContext.value = true
 ```
+
+[Scroll Up ↩](#api-reference)
 
 ### `Store` class
 
@@ -615,6 +629,8 @@ const unsubscribe = store.subscribe(LocalContext, (value) => {
 unsubscribe() // Stop listening
 ```
 
+[Scroll Up ↩](#api-reference)
+
 ## Namespaces
 
 ### `Context` namespace
@@ -647,6 +663,8 @@ type inferStorage<C extends Context<any, any>> =
     : never
 ```
 
+[Scroll Up ↩](#api-reference)
+
 ### `ContextConfig` namespace
 
 #### Type Aliases
@@ -663,6 +681,8 @@ type inferStorage<C extends ContextConfig<any, any>> =
     ? Storage
     : inferStorage<ContextConfig<any>>
 ```
+
+[Scroll Up ↩](#api-reference)
 
 ## Type Aliases
 
@@ -695,6 +715,8 @@ Available storage variants for context persistence.
 ```ts
 type StorageVariants = 'memory' | 'localStorage'
 ```
+
+[Scroll Up ↩](#api-reference)
 
 #### Public
 
@@ -730,3 +752,5 @@ import { useContext } from 'astro-context/vue'
 // Svelte > *.svelte
 import { useContext } from 'astro-context/svelte'
 ```
+
+[Scroll Up ↩](#api-reference)
