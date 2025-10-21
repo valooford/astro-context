@@ -19,6 +19,7 @@ const Component: FC<Props> = ({ variant = 'local' }) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContext(e.target.checked)
   }
+  console.log('test')
 
   return (
     <div
