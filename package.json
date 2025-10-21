@@ -2,7 +2,7 @@
   "name": "astro-context",
   "type": "module",
   "version": "0.0.1-0",
-  "description": "A framework agnostic context API for managing state in Astro applications.",
+  "description": "A framework-agnostic context API for managing state in Astro applications.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
