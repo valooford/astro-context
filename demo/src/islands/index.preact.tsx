@@ -2,7 +2,7 @@ import type { FunctionComponent } from 'preact'
 import type { FormEventHandler } from 'preact/compat'
 
 import { useContext } from 'astro-context/preact'
-import { useRef } from 'preact/compat'
+import { useRef } from 'preact/hooks'
 
 import { LocalContext, SessionContext } from './model'
 
